@@ -10,7 +10,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="refresh" content="0.1;url=<%=basePath%>jumppeople">
+<meta http-equiv="refresh" content="0.1;url=<%=basePath%>index">
 <title>足迹</title>
 <script type="text/javascript" src="js/baiducount.js"></script>
 </head>

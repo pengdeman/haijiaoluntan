@@ -1,54 +1,25 @@
-<!DOCTYPE html>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+    String path = request.getContextPath();
+    String basePath =
+            request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+                    + path + "/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>中国农业生态环境保护协会</title>
+<title>🌊海角论坛</title>
 <link href="css/css.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
 <!-- 头 -->
-<div id="head">
-	<h1>
-		<a href="index.html"><img src="images/logo.png"></a>
-	</h1>
-	<div class="headbox">
-		<a href="#" class="register">注册</a>
-		<a href="#" class="login">登录</a>
-	</div>
-</div>
-<!-- nav -->
-<div id="nav">
-	<div class="nav-box fix">
-		<ul>
-			<li class="on"><a href="#">网站首页 </a></li>
-			<li class="line"></li>
-			<li><a href="#">新闻中心</a></li>
-			<li class="line"></li>
-			<li><a href="#">政策法规</a></li>
-			<li class="line"></li>
-			<li><a href="#">行业动态</a></li>
-			<li class="line"></li>
-			<li><a href="#">行业研究</a></li>
-			<li class="line"></li>
-			<li><a href="#">分支机构</a></li>
-			<li class="line"></li>
-			<li><a href="#">会员中心</a></li>
-			<li class="line"></li>
-			<li><a href="#">交流中心</a></li>
-			<li class="line"></li>
-			<li><a href="#">协会期刊</a></li>
-			<li class="line"></li>
-			<li><a href="#">产品信息</a></li>
-			<li class="line"></li>
-			<li><a href="#">关于协会</a></li>
-			<li class="line"></li>
-			<li><a href="#">联系我们</a></li>
-		</ul>
-	</div>
-</div>
+<%@ include file="head.jsp"%>
 <!-- 主体 -->
 <div id="wrap" class="fix">
 	<div class="newslist-left">	
@@ -182,18 +153,6 @@
 	</div>
 </div>
 <!-- footer -->
-<div class="footer">
-	<p>
-		总机：010-51503594<br>
-		邮箱：webmaster@nercita.org.cn  <br>
-		地址：北京市海淀区曙光花园中路11号，北京农科大厦 
-	</p>
-	<p>
-		传真：010-51503594<br>
-		工作日：9:00-17:30<br>
-		技术支持：北京农业信息技术研究中心 
-	</p>
-</div>
-<script type="text/javascript"  src="js/jquery-1.11.3.min.js"></script>
+<%@ include file="foot.jsp"%>
 </body>
 </html>

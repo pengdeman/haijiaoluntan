@@ -12,7 +12,6 @@
 <title>足迹</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" type="text/css" href="404/error_all.css?t=201303212934">
-<script type="text/javascript" src="js/baiducount.js"></script>
 </head>
 <body class="error-404">
 <div id="doc_main">

@@ -105,7 +105,7 @@
   
   <!-- 系统首页 -->
   <welcome-file-list>
-    <welcome-file>/index.html</welcome-file>
+    <welcome-file>/jump.jsp</welcome-file>
   </welcome-file-list>
   <mime-mapping>
      <extension>ico</extension>
