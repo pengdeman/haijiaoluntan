@@ -23,10 +23,10 @@ body { background: url(../images/body-bj.jpg) no-repeat center top #f0f8fb; }
 .nav-box li.line { width: 1px; height: 14px; background-color: #ccc; margin-top: 11px; }
 .nav-box li.on a, .nav-box li:hover a { background:#95ea98; color: #2b832e;border: 1px solid #56ba5a;width:80px;height: 29px}
 /*footer*/
-.footer{background: #39943c;height: 50px;text-align: center;}
+.footer{background: #39943c;height: 40px;text-align: center;}
 .footer p{text-align:left;display: inline-block;color: #fff;font-size: 12px;color: #fff;line-height: 20px;margin-top: 14px;padding:0 100px}
 /* 主体 */
-#wrap { width: 1070px; margin: 0 auto; background-color: #fff; padding:10px;overflow:hidden;}
+#wrapp { width: 1090px; margin: 0 auto; background-color: #fff; padding:10px;overflow:hidden;}
 #img{padding: 6px;float: left;}
 .imgbox{position: relative;width: 321px;}
 .rdxw{padding:7px 9px; float: left; }
@@ -61,7 +61,7 @@ body { background: url(../images/body-bj.jpg) no-repeat center top #f0f8fb; }
 .tzdl{float: right;width:262px;}
 .notice-box{position: relative;padding-top: 38px;}
 .notice-box img{position: absolute;left: 0;top: 0}
-.notice-main{padding:22px 18px 10px;height: 229px;}
+.notice-main{padding:22px 18px 10px;height: 264px;}
 .notice-main li a{display: block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;line-height: 24px;font-size: 12px;}
 .notice-main li{padding:0 20px;background: url(../images/jiao.jpg) no-repeat left center; }
 .member-center{border: 2px solid #439d46;background-color: #fff;padding: 2px;border-radius: 4px;margin-top: 17px}
@@ -104,7 +104,7 @@ body { background: url(../images/body-bj.jpg) no-repeat center top #f0f8fb; }
 .showbox .next{right: 0;background: url(../images/right.jpg) no-repeat center;}
 .box-list3{margin-top: 15px;margin-left: -15px;}
 .box-list3 .box-list{float: left;width: 344px;margin-left: 15px;}
-.box-list3 .box-list ul{padding: 12px;height:144px;}
+.box-list3 .box-list ul{padding: 20px;height:180px;}
 .box-list3 .box-list li a{margin-right:20px}
 .blogroll{text-align: center;padding: 14px 0}
 .blogroll select{margin: 0 28px}

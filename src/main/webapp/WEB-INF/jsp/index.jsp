@@ -14,13 +14,14 @@
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>海角论坛</title>
+<link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
 <link href="css/css.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 <!-- 头 -->
 <%@ include file="head.jsp"%>
 <!-- 主体 -->
-<div id="wrap" class="fix">
+<div id="wrapp" class="fix">
 	<!-- 新闻-图片 -->
 	<div class="fix bd rdxw">
 		<div id="img" class="bd">
@@ -146,12 +147,12 @@
 	</div>
 	<!-- 兼职招聘 -->
 	<div class="hydt bd">
-		<div class="boxtitle fix">
+		<div class="boxtitle fixp">
 			<h6>兼职招聘</h6>
 			<a href="#">更多</a>
 			<span></span>
 		</div>
-		<div class="box-padding fix">
+		<div class="box-padding fixp">
 			<div class="hydt-l">
 				<img src="images/hydt-img.jpg">
 				<a href="#">足迹网招聘进行时...</a>
@@ -168,12 +169,12 @@
 	</div>
 	<!-- 二手市场 -->
 	<div class="hydt bd" style="float:right">
-		<div class="boxtitle fix">
+		<div class="boxtitle fixp">
 			<h6>二手市场</h6>
 			<a href="#">更多</a>
 			<span></span>
 		</div>
-		<div class="box-padding fix">
+		<div class="box-padding fixp">
 			<div class="hydt-l">
 				<img src="images/hydt-img.jpg">
 				<a href="#">最新二手兰博基尼展示...</a>
@@ -189,9 +190,9 @@
 		</div>
 	</div>
 	<!-- 广告位展示 -->
-	<div class="eprise-show fix bd">
+	<div class="eprise-show fixp bd">
 		<h6><br>广<br>告<br>位<br>展<br>示</h6>
-		<div class="showbox fix">
+		<div class="showbox fixp">
 			<div class="showlist">
 				<ul>	
 					<li>
@@ -232,10 +233,10 @@
 			<a href="javascript:;" class="next listbtn"></a>
 		</div>
 	</div>
-	<div class="box-list3 fix">
+	<div class="box-list3 fixp">
 		<!-- 家有萌宠 -->
 		<div class="box-list bd">			
-			<div class="boxtitle fix">
+			<div class="boxtitle fixp">
 				<h6>家有萌宠</h6>
 				<a href="#">更多</a>
 				<span></span>
@@ -250,8 +251,8 @@
 			</ul>
 		</div>
 		<!-- 同城交友 -->
-		<div class="box-list bd">			
-			<div class="boxtitle fix">
+		<div class="box-list bd" style="margin-left: 19px;">			
+			<div class="boxtitle fixp">
 				<h6>同城交友</h6>
 				<a href="#">更多</a>
 				<span></span>
@@ -266,8 +267,8 @@
 			</ul>
 		</div>
 		<!-- 情感天地 -->
-		<div class="box-list bd">			
-			<div class="boxtitle fix">
+		<div class="box-list bd" style="margin-left: 19px;">			
+			<div class="boxtitle fixp">
 				<h6>情感天地</h6>
 				<a href="#">更多</a>
 				<span></span>
