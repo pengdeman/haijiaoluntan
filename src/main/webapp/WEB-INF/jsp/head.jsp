@@ -4,10 +4,10 @@
 		<a href="index.html" style="font-size: 40px; color:white; margin-top: -35px; margin-left: -10px; font-family: YouYuan;">
 		🌊 海 角 论 坛</a><br>
 		<a style="margin-top: -280px; color:white;">    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hai    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jiao    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lun    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tan</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hai    
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jiao    
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lun    
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tan</a>
 	</h1>
 	<div class="headbox">
 		<a href="#" class="register" data-toggle="modal" data-target="#registModal">注册</a>
@@ -31,8 +31,6 @@
 			<li><a href="#">同城交友</a></li>
 			<li class="line"></li>
 			<li><a href="#">情感天地</a></li>
-			<li class="line"></li>
-			<li><a href="#">通知公告</a></li>
 			<li class="line"></li>
 			<li><a href="#">广告位展示</a></li>
 			<li class="line"></li>

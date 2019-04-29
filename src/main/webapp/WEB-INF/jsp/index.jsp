@@ -127,11 +127,11 @@
 			</div>
 		</div>
 	</div>
-	<!-- 通知公告 -->
+	<!-- 个人信息 -->
 	<div class="tzdl">
-		<!-- 通知公告 -->
+		<!-- 个人信息 -->
 		<div class="notice-box">
-			<img src="images/notice.png">
+			<img src="images/notice_1.png">
 			<div class="notice-main bd">
 				<ul>
 					<li><a href="#">系统维护统治</a></li>
