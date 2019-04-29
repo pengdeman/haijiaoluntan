@@ -305,7 +305,7 @@
 			</div>
 			<ul>
 				<c:forEach items="${jymcList }" var="item">
-					<li><a href="<%=basePath%>godetails?id=${item.id }">${item.title }</a></li>
+					<li><a href="<%=basePath%>godetails?id=${item.id }" target="_blank">${item.title }</a></li>
 				</c:forEach>
 			</ul>
 		</div>
@@ -318,7 +318,7 @@
 			</div>
 			<ul>
 				<c:forEach items="${tcjyList }" var="item">
-					<li><a href="<%=basePath%>godetails?id=${item.id }">${item.title }</a></li>
+					<li><a href="<%=basePath%>godetails?id=${item.id }" target="_blank">${item.title }</a></li>
 				</c:forEach>
 			</ul>
 		</div>
@@ -331,7 +331,7 @@
 			</div>
 			<ul>
 				<c:forEach items="${qgtdList }" var="item">
-					<li><a href="<%=basePath%>godetails?id=${item.id }">${item.title }</a></li>
+					<li><a href="<%=basePath%>godetails?id=${item.id }" target="_blank">${item.title }</a></li>
 				</c:forEach>
 			</ul>
 		</div>

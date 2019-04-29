@@ -36,7 +36,7 @@
     where plate = #{plate}
   </select>
   
-  <select id="queryByPlateAndLimit">
+  <select id="queryByPlateAndLimit" resultMap="BaseResultMap" parameterType="java.lang.String">
   	select 
     <include refid="Base_Column_List" />
     from article 
