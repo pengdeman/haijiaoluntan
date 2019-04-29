@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haijiaoluntan.dao.IArticleDao">
+  <resultMap id="BaseResultMap" type="com.haijiaoluntan.pojo.Article" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="comment" property="comment" jdbcType="VARCHAR" />
+    <result column="plate" property="plate" jdbcType="VARCHAR" />
+    <result column="clickTimes" property="clickTimes" jdbcType="INTEGER" />
+    <result column="pictureUrl" property="pictureUrl" jdbcType="VARCHAR" />
+    <result column="top" property="top" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="DATE" />
+    <result column="createName" property="createName" jdbcType="VARCHAR" />
+    <result column="createId" property="createId" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id,title,comment,plate,click_times,picture_url,top,create_time,create_name,create_id
+  </sql>
+
+  <insert id="insert" parameterType="com.haijiaoluntan.pojo.Article" >
+    insert into article 
+    (
+    id,title,comment,plate,click_times,picture_url,top,create_time,create_name,create_id
+    )
+    values 
+    (
+    #{id}, #{title}, #{comment}, #{plate}, #{clickTimes}, #{pictureUrl}, #{top}, #{createTime},#{createName}, #{createId}
+    )
+  </insert>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from article 
+    where id = #{id}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article
+    where id = #{id}
+  </delete>
+  
+  <update id="updateSelective" parameterType="com.haijiaoluntan.pojo.Article" >
+    update article
+    <set >
+      <if test="clickTimes != null" >
+        click_times = #{clickTimes}
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  
+</mapper>

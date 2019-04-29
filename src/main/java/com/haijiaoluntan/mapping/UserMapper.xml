@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haijiaoluntan.dao.IUserDao">
+
+  <resultMap id="BaseResultMap" type="com.haijiaoluntan.pojo.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="login_time" property="loginTime" jdbcType="DATE" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="plate" property="plate" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    id, account, password, name, login_time, level, plate, create_time
+  </sql>
+  
+  <select id="findUserByAccountAndPassword" resultMap="BaseResultMap" parameterType="com.haijiaoluntan.pojo.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where account = #{account,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="findAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+  </select> 
+  
+  <select id="findName" resultMap="BaseResultMap" parameterType="com.haijiaoluntan.pojo.User" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>  
+   
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.haijiaoluntan.pojo.User" >
+    insert into user (
+    id, 
+    account, 
+    password, 
+    name, 
+    login_time,
+    level, 
+    plate, 
+    create_time
+    )
+    values (
+    #{id}, 
+    #{account}, 
+    #{password}, 
+    #{name}, 
+    #{loginTime},
+    #{level}, 
+    #{plate}, 
+    #{create_time}
+    )
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.haijiaoluntan.pojo.User" >
+    update user
+    <set >
+      <if test="account != null" >
+        account = #{account},
+      </if>
+      <if test="password != null" >
+        password = #{password},
+      </if>
+      <if test="name != null" >
+        name = #{name},
+      </if>
+      <if test="loginTime != null" >
+        login_time = #{loginTime},
+      </if>
+      <if test="level != null" >
+        level = #{level},
+      </if>
+      <if test="plate != null" >
+        plate = #{plate},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime}
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+  
+</mapper>
