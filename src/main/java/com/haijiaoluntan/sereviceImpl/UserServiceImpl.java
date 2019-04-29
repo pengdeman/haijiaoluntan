@@ -49,9 +49,10 @@ public class UserServiceImpl implements IUserService {
 	 * @return
 	 */
 	@Override
-	public List<User> findName(String userName) {
+	public List<User> findName(String name, String account) {
 		User user = new User();
-		user.setName(userName);
+		user.setName(name);
+		user.setAccount(account);
 		return this.userDao.findName(user);
 	}
 	

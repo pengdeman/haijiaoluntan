@@ -13,9 +13,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<base href="<%=basePath%>">
 <title>海角论坛</title>
 <link href="bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
 <link href="css/css.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="layer/mobile/need/layer.css" />
+<style>
+      .fakeimg {
+        height: 160px;
+        background: #aaa;
+        background-repeat:no-repeat;
+        background-size:100% 100%;
+        -moz-background-size:100% 100%;
+      }
+</style>
 </head>
 <body>
 <!-- 头 -->
@@ -132,18 +143,69 @@
 		<!-- 个人信息 -->
 		<div class="notice-box">
 			<img src="images/notice_1.png">
-			<div class="notice-main bd">
-				<ul>
-					<li><a href="#">系统维护统治</a></li>
-					<li><a href="#">系统升级通知...</a></li>
-					<li><a href="#">使用说明V2.0</a></li>
-					<li><a href="#">下周活动概要</a></li>
-					<li><a href="#">最新网站情况发布</a></li>
-					<li><a href="#">明日“我在北京”活动开启...</a></li>
-					<li><a href="#">重要通知马上送到...</a></li>
-				</ul>
+				<div class="notice-main bd">
+					<div>
+						<c:if test="${login_user == null }">
+							<div class="fakeimg" style="background-image: url('images/wxr.png');"></div>
+						</c:if>
+						<c:if test="${login_user != null }">
+							<c:if test="${login_user.account eq 'admin' }">
+								<div class="fakeimg" style="background-image: url('images/admin.png');"></div>
+							</c:if>
+							<c:if test="${login_user.account != 'admin' }">
+								<div class="fakeimg" style="background-image: url('pic/${login_user.picurl }');"></div>
+							</c:if>
+						</c:if>
+					</div>
+					<div class="panel panel-default">
+						<table class="table">
+							<tr>
+								<td colspan="4" style="text-align: center;">
+									<span class="glyphicon glyphicon-user"></span> 
+									<c:if test="${login_user == null}">
+										<strong>匿名游客</strong>&nbsp;&nbsp;
+                					</c:if> 
+                					<c:if test="${login_user != null}">
+										<strong>${login_user.name}</strong>&nbsp;&nbsp;
+                					</c:if> 
+                				</td>
+							</tr>
+							<tr>
+								<c:if test="${login_user != null}">
+									<c:if test="${login_user.account eq 'admin'}">
+										<td style="white-space: nowrap;"><strong>等级:</strong></td>
+										<td>9999+</td>
+										<td style="white-space: nowrap;"><strong>版主:</strong></td>
+										<td style="white-space: nowrap;">超级版主</td>
+									</c:if>
+									<c:if test="${login_user.account != 'admin'}">
+										<td style="white-space: nowrap;"><strong>等级:</strong></td>
+										<td>${login_user.level}</td>
+										<c:if test="${login_user.plate == null }">
+											<td style="white-space: nowrap;"><strong>版主:</strong></td>
+											<td>无</td>
+										</c:if>
+										<c:if test="${login_user.plate != null }">
+											<td style="white-space: nowrap;"><strong>版主:</strong></td>
+											<td>${login_user.plate}</td>
+										</c:if>
+									</c:if>
+								</c:if>
+								<c:if test="${login_user == null}">
+									<td style="white-space: nowrap;"><strong>等级:</strong></td>
+									<td>无</td>
+									<td style="white-space: nowrap;"><strong>版主:</strong></td>
+									<td>无</td>
+								</c:if>
+							</tr>
+							<!--  <tr>
+								<td style="white-space: nowrap;"><strong>签名:</strong></td>
+								<td colspan="3">纸上得来终觉浅，觉知此时要躬行。</td>
+							</tr>-->
+						</table>
+					</div>
+				</div>
 			</div>
-		</div>
 	</div>
 	<!-- 兼职招聘 -->
 	<div class="hydt bd">
@@ -288,18 +350,5 @@
 </div>
 <!-- footer -->
 <%@ include file="foot.jsp"%>
-<script type="text/javascript">
-$(function(){
-	/*热点新闻*/
-	$("#img").jdtab()
-	/*广告位展示*/
-	$(".showlist").tab({
-		g:2,
-		lg:5,
-		boxmargin:10,
-		btnshow:true
-	})
-})
-</script>
 </body>
 </html>

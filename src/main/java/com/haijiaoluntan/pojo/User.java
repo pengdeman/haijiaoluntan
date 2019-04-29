@@ -21,8 +21,18 @@ public class User {
 	private Integer level;
 	//板块（哪个板块的版主）
 	private String plate;
+	//头像
+	private String picurl;
 	//创建时间
 	private Date createTime;
+
+	public String getPicurl() {
+		return picurl;
+	}
+
+	public void setPicurl(String picurl) {
+		this.picurl = picurl;
+	}
 
 	public Long getId() {
 		return id;

@@ -14,14 +14,14 @@
   </resultMap>
   
   <sql id="Base_Column_List" >
-    id, account, password, name, login_time, level, plate, create_time
+    id, account, password, name, login_time, level, plate, picurl, create_time
   </sql>
   
   <select id="findUserByAccountAndPassword" resultMap="BaseResultMap" parameterType="com.haijiaoluntan.pojo.User" >
     select 
     <include refid="Base_Column_List" />
     from user
-    where account = #{account,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
+    where account = #{account} and password = #{password}
   </select>
   
   <select id="findAll" resultMap="BaseResultMap">
@@ -34,7 +34,7 @@
     select 
     <include refid="Base_Column_List" />
     from user
-    where name = #{name,jdbcType=VARCHAR}
+    where name = #{name} or account = #{account}
   </select>  
    
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -58,6 +58,7 @@
     login_time,
     level, 
     plate, 
+    picurl,
     create_time
     )
     values (
@@ -68,7 +69,8 @@
     #{loginTime},
     #{level}, 
     #{plate}, 
-    #{create_time}
+    #{picurl},
+    #{createTime}
     )
   </insert>
   
@@ -92,6 +94,9 @@
       </if>
       <if test="plate != null" >
         plate = #{plate},
+      </if>
+      <if test="picurl != null" >
+        picurl = #{picurl},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime}

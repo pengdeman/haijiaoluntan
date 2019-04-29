@@ -4,14 +4,19 @@
 		<a href="index.html" style="font-size: 40px; color:white; margin-top: -35px; margin-left: -10px; font-family: YouYuan;">
 		🌊 海 角 论 坛</a><br>
 		<a style="margin-top: -280px; color:white;">    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hai    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jiao    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lun    
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tan</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hai    
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jiao    
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lun    
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tan</a>
 	</h1>
 	<div class="headbox">
-		<a href="#" class="register" data-toggle="modal" data-target="#registModal">注册</a>
-		<a href="#" class="login" data-toggle="modal" data-target="#loginModal">登录</a>
+		<c:if test="${login_user == null}">
+			<a href="#" class="register" data-toggle="modal" data-target="#registModal">注册</a>
+			<a href="#" class="login" data-toggle="modal" data-target="#loginModal">登录</a>
+		</c:if>
+		<c:if test="${login_user != null}">
+			<a class="login" onclick="tuichu()" data-target="#loginModal">登出</a>
+		</c:if>
 	</div>
 </div>
 <!-- nav -->
@@ -33,61 +38,10 @@
 			<li><a href="#">情感天地</a></li>
 			<li class="line"></li>
 			<li><a href="#">广告位展示</a></li>
-			<li class="line"></li>
-			<li><a href="#">权限管理</a></li>
+			<c:if test="${login_user.account eq 'admin'}">
+				<li class="line"></li>
+				<li><a href="#">权限管理</a></li>
+			</c:if>
 		</ul>
 	</div>
-</div>
-
-<!-- 注册模态框（Modal） -->
-<div class="modal fade" id="registModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					注册
-				</h4>
-			</div>
-			<div class="modal-body">
-				在这里添加一些文本
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button>
-				<button type="button" class="btn btn-primary">
-					注册
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
-</div>
-
-
-<!-- 登录模态框（Modal） -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					登录
-				</h4>
-			</div>
-			<div class="modal-body">
-				在这里添加一些文本
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button>
-				<button type="button" class="btn btn-primary">
-					登录
-				</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
 </div>

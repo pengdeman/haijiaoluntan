@@ -16,9 +16,9 @@ public interface IUserService {
 
 	public User findUserByAccountAndPassword(String loginName, String password);
 
-	public List<User> findName(String loginName);
+	public List<User> findName(String name, String account);
 
-	public void insert(User lg);  
+	public void insert(User user);  
 	
 	public void updateSelective(User user);
 
