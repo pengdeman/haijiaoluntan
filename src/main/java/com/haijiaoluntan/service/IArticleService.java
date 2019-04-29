@@ -1,5 +1,7 @@
 package com.haijiaoluntan.service;
 
+import java.util.List;
+
 import com.haijiaoluntan.pojo.Article;
 
 /**
@@ -16,4 +18,17 @@ public interface IArticleService {
 	public void updateSelective(Article article);
 
 	public void deleteByPrimaryKey(Integer id);
+
+	/**
+	 * 通过板块查信息
+	 * @param type
+	 */
+	public List<Article> queryByPlate(String type);
+
+	/**
+	 * 通过板块查信息 带分页
+	 * @param string
+	 * @return
+	 */
+	public List<Article> queryByPlateAndLimit(String string);
 }

@@ -97,7 +97,7 @@
 								<td colspan="3">纸上得来终觉浅，觉知此时要躬行。</td>
 							</tr>
 						</table>
-					</div>	
+					</div>
 					<c:if test="${login_user != null}">
 						<div style="text-align: center; margin-bottom: 10px;">
           					<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#infoModal">发布信息</button>
@@ -108,30 +108,24 @@
 	<div class="newslist-right">
 		<div class="bread">
 			当前位置：<a>首页</a> - 
-			<c:if test="${type eq 1}">
-			兼职招聘
+			<c:if test="${type eq 0}">
+			热点新闻
 			</c:if>
-			<c:if test="${type eq 2}">
-			二手市场
-			</c:if>
-			<c:if test="${type eq 3}">
-			家有萌宠
-			</c:if>
-			<c:if test="${type eq 4}">
-			同城交友
-			</c:if>
-			<c:if test="${type eq 5}">
-			情感天地
+			<c:if test="${type eq 6}">
+			广告位展示
 			</c:if>
 		</div>
-		<ul class="newslist-ul fix">
+		<div class="cp-mes">
 			<c:forEach items="${articleList}" var="item">
-				<li>
-					<span> [<fmt:formatDate value="${item.createTime }" pattern="yyyy-MM-dd"></fmt:formatDate>]</span>
-					<a href="<%=basePath%>godetails?id=${item.id }" target="_blank">${item.title }</a>
-				</li>
+				<div class="cp-list">
+					<h6>${item.title }</h6>
+					<img src="pic/${item.pictureUrl }">
+					<div>
+					${item.comment } 
+					<a href="<%=basePath%>godetails?id=${item.id }" target="_blank">详情</a></div>
+				</div>
 			</c:forEach>
-		</ul>
+		</div>
 		<div class="page">
 			总共<span>55</span>页 当前第<span>1</span>/<span>55</span>页
 			<a href="#">首页</a>

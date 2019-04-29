@@ -300,48 +300,39 @@
 		<div class="box-list bd">			
 			<div class="boxtitle fixp">
 				<h6>家有萌宠</h6>
-				<a href="#">更多</a>
+				<a href="<%=basePath%>textlist?type=3">更多</a>
 				<span></span>
 			</div>
 			<ul>
-				<li><a href="#">我家狗子叫钢镚，是一个乖孩子，好孩子</a></li>
-				<li><a href="#">我家狗子叫钢镚，是一个乖孩子，好孩子...</a></li>
-				<li><a href="#">我家狗子叫钢镚，是一个乖孩子，好孩子</a></li>
-				<li><a href="#">我家狗子叫钢镚，是一个乖孩子，好孩子...</a></li>
-				<li><a href="#">我家狗子叫钢镚，是一个乖孩子，好孩子</a></li>
-				<li><a href="#">我家狗子叫钢镚，是一个乖孩子，好孩子...</a></li>
+				<c:forEach items="${jymcList }" var="item">
+					<li><a href="<%=basePath%>godetails?id=${item.id }">${item.title }</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<!-- 同城交友 -->
 		<div class="box-list bd" style="margin-left: 19px;">			
 			<div class="boxtitle fixp">
 				<h6>同城交友</h6>
-				<a href="#">更多</a>
+				<a href="<%=basePath%>textlist?type=4">更多</a>
 				<span></span>
 			</div>
 			<ul>
-				<li><a href="#">本人男，爱好女，速来相见</a></li>
-				<li><a href="#">本人男，爱好女，速来相见...</a></li>
-				<li><a href="#">本人男，爱好女，速来相见</a></li>
-				<li><a href="#">本人男，爱好女，速来相见...</a></li>
-				<li><a href="#">本人男，爱好女，速来相见</a></li>
-				<li><a href="#">本人男，爱好女，速来相见...</a></li>
+				<c:forEach items="${tcjyList }" var="item">
+					<li><a href="<%=basePath%>godetails?id=${item.id }">${item.title }</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 		<!-- 情感天地 -->
 		<div class="box-list bd" style="margin-left: 19px;">			
 			<div class="boxtitle fixp">
 				<h6>情感天地</h6>
-				<a href="#">更多</a>
+				<a href="<%=basePath%>textlist?type=5">更多</a>
 				<span></span>
 			</div>
 			<ul>
-				<li><a href="#">爱上一个绝情男人是怎样的体验</a></li>
-				<li><a href="#">爱上一个绝情男人是怎样的体验...</a></li>
-				<li><a href="#">爱上一个绝情男人是怎样的体验</a></li>
-				<li><a href="#">爱上一个绝情男人是怎样的体验...</a></li>
-				<li><a href="#">爱上一个绝情男人是怎样的体验</a></li>
-				<li><a href="#">爱上一个绝情男人是怎样的体验...</a></li>
+				<c:forEach items="${qgtdList }" var="item">
+					<li><a href="<%=basePath%>godetails?id=${item.id }">${item.title }</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 	</div>

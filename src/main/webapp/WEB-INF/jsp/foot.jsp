@@ -76,8 +76,7 @@
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-				</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 				<button type="submit" onclick="signinsubform()" class="btn btn-primary">登录</button>
 			</div>
 		</div>
@@ -85,6 +84,63 @@
 	</div>
 	<!-- /.modal -->
 </div>
+
+<!-- 发布信息模态框 -->
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="chenxingModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-image: url('xingchen.jpg');background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;">
+          <button type="button" class="close" data-dismiss="modal"
+aria-hidden="true">×
+          </button>
+          <h1 class="text-center" id="chenxingModalLabel">
+            信息发布
+          </h1>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" action="<%=basePath%>submitarticle" id="article-form_id" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+				<label>信息标题</label> 
+				<input class="form-control" type="text" name="title" placeholder="请输入标题">
+			</div>
+            <div class="form-group">
+              <label>信息内容</label>
+              <textarea class="form-control" type="text" name="comment" id="comment" style="width: 99.5%; min-height: 150px;"></textarea>
+            </div>
+            <div class="form-group">
+              <label>板块设置</label>
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      选择板块
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:getbankuai('热点新闻')">热点新闻</a></li>
+                      <li><a href="javascript:getbankuai('兼职招聘')">兼职招聘</a></li>
+                      <li><a href="javascript:getbankuai('二手市场')">二手市场</a></li>
+                      <li><a href="javascript:getbankuai('家有萌宠')">家有萌宠</a></li>
+                      <li><a href="javascript:getbankuai('同城交友')">同城交友</a></li>
+                      <li><a href="javascript:getbankuai('情感天地')">情感天地</a></li>
+                      <li><a href="javascript:getbankuai('广告位展示')">广告位展示</a></li>
+                    </ul>
+                  </div><!-- /btn-group -->
+                  <input type="text" class="form-control" id="plate" name="plate">
+                </div><!-- /input-group -->
+            </div>
+            <div class="form-group">
+              <label>文章图片</label>
+              <input type="file" class="file" name="pictureurl"/>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="submit" onclick="infosubform()" class="btn btn-primary">发布</button>
+			</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-common.js"></script>
@@ -109,6 +165,34 @@
 		})
 
 		/**
+       * 信息发布
+       */
+      function infosubform() {
+		  if ($("input[name='title']").val().length == 0) {
+	          alert("请填写信息标题。");
+	          return;
+	      }
+		  if ($("#comment").val().length == 0) {
+              alert("请填写信息内容。");
+              return;
+          }
+          if ($("input[name='plate']").val().length == 0) {
+              alert("请选择一个板块。");
+              return;
+          }
+          if ($("input[name='pictureurl']").val().length == 0) {
+              alert("请选择一个图片。");
+              return;
+          }
+          layer.open({
+              type: 2
+              ,content: '发布中...'
+              ,time: 5
+          });
+          $("#article-form_id").submit();
+      }
+		
+		/**
 		 * 登录
 		 */
 		function signinsubform() {
@@ -122,12 +206,19 @@
 			}
 			layer.open({
 				type : 2,
-				content : '提交中...',
+				content : '登录中...',
 				time : 5
 			});
 			$("#signin-form_id").submit();
 		}
 
+		/**
+	       * 选择板块
+	       */
+	      function getbankuai(mes){
+	          $("#plate").val(mes);
+	      }
+		
 		/**
 		 * 注册
 		 */

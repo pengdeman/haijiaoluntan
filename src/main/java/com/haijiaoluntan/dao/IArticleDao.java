@@ -1,5 +1,7 @@
 package com.haijiaoluntan.dao;
 
+import java.util.List;
+
 import com.haijiaoluntan.pojo.Article;
 
 /**
@@ -16,4 +18,8 @@ public interface IArticleDao {
 	void updateSelective(Article article);
 
 	void deleteByPrimaryKey(Integer id);
+
+	List<Article> queryByPlate(String plate);
+
+	List<Article> queryByPlateAndLimit(String plate);
 }
