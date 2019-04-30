@@ -9,4 +9,4 @@
 （3）版主：可以查看、发布和管理自己负责的板块，可删除，置顶等
 （4）超级管理员：可以查看、发布和管理系统所有模块信息，并能指定模块的版主
 4、系统包含内容：
-源代码、sql脚本（haijiaoluntan.sql）、可运行的war包、和图片文件（pic）
+源代码、sql脚本(haijiaoluntan.sql)、可运行的war包(haijiaoluntan.war)、和图片文件(pic)
