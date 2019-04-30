@@ -147,15 +147,24 @@
 						</c:if>
 					</c:if>
 					<span style="margin-left: 30px;"> [<fmt:formatDate value="${item.createTime }" pattern="yyyy-MM-dd"></fmt:formatDate>]</span>
-					<a href="<%=basePath%>godetails?id=${item.id }" target="_blank"><c:if test="${item.top eq '1'}"><img width="15px;" style="margin-bottom: 5px;" src="images/huo.png"></c:if> ${item.title }</a>
+					<a href="<%=basePath%>godetails?id=${item.id }" target="_blank"><c:if test="${item.top eq '1'}"><img width="15px;" style="margin-bottom: 5px;" src="images/huo.png"><label style="color: red;">[置顶]</label>&nbsp;&nbsp;</c:if> ${item.title }</a>
 				</li>
 			</c:forEach>
 		</ul>
 		<!--  disabled -->
 		<ul class="pager">
-			
-			<li <c:if test="${pageNumber == 0}">class="previous disabled"</c:if><c:if test="${pageNumber != 0}">class="previous"</c:if>><a href="<%=basePath%>textlist?type=${type}&pagenumber=${pageNumber}&pagetype=older">&larr; Older</a></li>
-			<li <c:if test="${nextpage == 0}">class="next disabled"</c:if><c:if test="${nextpage != 0}">class="next"</c:if>><a href="<%=basePath%>textlist?type=${type}&pagenumber=${pageNumber}&pagetype=newer">Newer &rarr;</a></li>
+			<c:if test="${pageNumber == 0}">
+				<li class="previous disabled"><a>&larr; Older</a></li>
+			</c:if>
+			<c:if test="${pageNumber != 0}">
+				<li class="previous"><a href="<%=basePath%>textlist?type=${type}&pagenumber=${pageNumber}&pagetype=older">&larr; Older</a></li>
+			</c:if>
+			<c:if test="${nextpage == 0}">
+				<li class="next disabled"><a>Newer &rarr;</a></li>
+			</c:if>
+			<c:if test="${nextpage != 0}">
+				<li class="next"><a href="<%=basePath%>textlist?type=${type}&pagenumber=${pageNumber}&pagetype=newer">Newer &rarr;</a></li>
+			</c:if>
 		</ul>
 	</div>
 </div>

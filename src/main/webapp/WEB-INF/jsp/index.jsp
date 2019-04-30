@@ -41,55 +41,35 @@
 				<div class="imgbig">
 					<ul>
 						<li>
-							<a href="#">
-								<img src="images/img/ingbig.jpg" alt="中粮农业生态谷启动区">
+							<a href="<%=basePath%>godetails?id=${rdxwArticle.id }">
+								<img src="pic/${rdxwArticle.pictureUrl }" alt="${rdxwArticle.title }">
 							</a>
 						</li>
-						<li>
-							<a href="#">
-								<img src="images/img/ingbig.jpg"  alt="22222">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="images/img/ingbig.jpg" alt="333333">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="images/img/ingbig.jpg"  alt="444444">
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<img src="images/img/ingbig.jpg" alt="55555">
-							</a>
-						</li>
+						<c:forEach items="${rdxwList }" var="item">
+							<li>
+								<a href="<%=basePath%>godetails?id=${item.id }">
+									<img src="pic/${item.pictureUrl }"  alt="${item.title }">
+								</a>
+							</li>
+						</c:forEach>
 					</ul>
 				</div>	
 				<!-- 小图 -->	
 				<div class="imgsmall">
 					<ul>
 						<li class="on">
-							<img src="images/img/imgsmall1.jpg">
+							<img src="pic/${rdxwArticle.pictureUrl }">
 						</li>
-						<li>
-							<img src="images/img/imgsmall1.jpg">
-						</li>
-						<li>
-							<img src="images/img/imgsmall1.jpg">
-						</li>
-						<li>
-							<img src="images/img/imgsmall1.jpg">
-						</li>
-						<li>
-							<img src="images/img/imgsmall1.jpg">
-						</li>
+						<c:forEach items="${rdxwList }" var="item">
+							<li class="on">
+								<img src="pic/${item.pictureUrl }">
+							</li>
+						</c:forEach>
 					</ul>
 				</div>
 				<!-- 图片描述 -->
 				<div class="img-title">
-					<p>中粮农业生态谷启动区</p>
+					<p></p>
 				</div>
 				<span class="btn-left imgbtn"><img src="images/left.png"></span>
 				<span class="btn-right imgbtn"><img src="images/right.png"></span>
@@ -104,36 +84,18 @@
 			<div class="hotNews-txt">
 				<div class="hotNews-top">
 					<div class="news-img bd">
-						<a href="#"><img src="images/img/news-img.jpg"></a>
+						<a href="<%=basePath%>godetails?id=${rdxwArticle.id }"><img src="pic/${rdxwArticle.pictureUrl }"></a>
 					</div>
-					<h6><a href="#">十大中国生态农业模式_温室大棚技术</a></h6>
-					<p>2015年，是“十二五”的收官之年，也是“十三五”的谋局之年。“十三五”期间，国家将全面实施城镇化战</p>
+					<h6><a href="<%=basePath%>godetails?id=${rdxwArticle.id }">${rdxwArticle.title }</a></h6>
+					<p>${rdxwArticle.comment }</p>
 				</div>
 				<ul>
-					<li>
-						<span>2015-04-14</span>
-						<a href="#">跨界合作、协同创新 首都创新大联盟跨界合作、协...</a>
-					</li>
-					<li>
-						<span>2015-04-14</span>
-						<a href="#">跨界合作、协同创新 首都创新大联盟跨界合作、协...</a>
-					</li>
-					<li>
-						<span>2015-04-14</span>
-						<a href="#">跨界合作、协同创新 首都创新大联盟跨界合作、协...</a>
-					</li>
-					<li>
-						<span>2015-04-14</span>
-						<a href="#">跨界合作、协同创新 首都创新大联盟跨界合作、协...</a>
-					</li>
-					<li>
-						<span>2015-04-14</span>
-						<a href="#">跨界合作、协同创新 首都创新大联盟跨界合作、协...</a>
-					</li>
-					<li>
-						<span>2015-04-14</span>
-						<a href="#">跨界合作、协同创新 首都创新大联盟跨界合作、协...</a>
-					</li>
+					<c:forEach items="${rdxwList }" var="item">
+						<li>
+							<span><fmt:formatDate value="${item.createTime }" pattern="yyyy-MM-dd"></fmt:formatDate></span>
+							<a href="<%=basePath%>godetails?id=${item.id }"target="_blank">${item.title}</a>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -209,14 +171,14 @@
 	</div>
 	<!-- 兼职招聘 -->
 	<div class="hydt bd">
-		<div class="boxtitle fixp">
+		<div class="boxtitle fix">
 			<h6>兼职招聘</h6>
 			<a href="<%=basePath%>textlist?type=1">更多</a>
 			<span></span>
 		</div>
-		<div class="box-padding fixp">
+		<div class="box-padding fix">
 			<div class="hydt-l">
-				<img src="pic/${jjzpArticle.pictureUrl }" style="width: 150px; height: 150px;">
+				<img src="pic/${jjzpArticle.pictureUrl }" style="width: 160px; height: 120px;">
 				<a href="<%=basePath%>godetails?id=${jjzpArticle.id }" target="_blank">${jjzpArticle.title }</a>
 			</div>
 			<ul>
@@ -228,14 +190,14 @@
 	</div>
 	<!-- 二手市场 -->
 	<div class="hydt bd" style="float:right">
-		<div class="boxtitle fixp">
+		<div class="boxtitle fix">
 			<h6>二手市场</h6>
 			<a href="<%=basePath%>textlist?type=2">更多</a>
 			<span></span>
 		</div>
-		<div class="box-padding fixp">
+		<div class="box-padding fix">
 			<div class="hydt-l">
-				<img src="pic/${esscArticle.pictureUrl }" style="width: 150px; height: 150px;">
+				<img src="pic/${esscArticle.pictureUrl }" style="width: 160px; height: 120px;">
 				<a href="<%=basePath%>godetails?id=${esscArticle.id }" target="_blank">${esscArticle.title }</a>
 			</div>
 			<ul>
@@ -246,9 +208,9 @@
 		</div>
 	</div>
 	<!-- 广告位展示 -->
-	<div class="eprise-show fixp bd">
+	<div class="eprise-show fix bd">
 		<h6><br>广<br>告<br>位<br>展<br>示</h6>
-		<div class="showbox fixp">
+		<div class="showbox fix">
 			<div class="showlist">
 				<ul>	
 					<c:forEach items="${ggwList}" var="item">
@@ -263,10 +225,10 @@
 			<a href="javascript:;" class="next listbtn"></a>
 		</div>
 	</div>
-	<div class="box-list3 fixp">
+	<div class="box-list3 fix">
 		<!-- 家有萌宠 -->
 		<div class="box-list bd">			
-			<div class="boxtitle fixp">
+			<div class="boxtitle fix">
 				<h6>家有萌宠</h6>
 				<a href="<%=basePath%>textlist?type=3">更多</a>
 				<span></span>
@@ -279,7 +241,7 @@
 		</div>
 		<!-- 同城交友 -->
 		<div class="box-list bd" style="margin-left: 19px;">			
-			<div class="boxtitle fixp">
+			<div class="boxtitle fix">
 				<h6>同城交友</h6>
 				<a href="<%=basePath%>textlist?type=4">更多</a>
 				<span></span>
@@ -292,7 +254,7 @@
 		</div>
 		<!-- 情感天地 -->
 		<div class="box-list bd" style="margin-left: 19px;">			
-			<div class="boxtitle fixp">
+			<div class="boxtitle fix">
 				<h6>情感天地</h6>
 				<a href="<%=basePath%>textlist?type=5">更多</a>
 				<span></span>

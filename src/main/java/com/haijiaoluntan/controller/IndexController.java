@@ -80,7 +80,23 @@ public class IndexController {
 			model.addAttribute("esscArticle", esscArticle);
 			model.addAttribute("esscList", esscList);
 		}
-		
+		//热点新闻
+		List<Article> rdxwList = articleService.queryByPlateAndLimit(getPlate("0"));
+		Article rdxwArticle = new Article();
+		if(rdxwList.size() > 0) {
+			rdxwArticle.setId(rdxwList.get(0).getId());
+			rdxwArticle.setPictureUrl(rdxwList.get(0).getPictureUrl());
+			rdxwArticle.setTitle(rdxwList.get(0).getTitle());
+			rdxwArticle.setComment(rdxwList.get(0).getComment());
+			//第一条数据
+			model.addAttribute("rdxwArticle", rdxwArticle);
+			//除第一条外的其他数据
+			rdxwList.remove(0);
+			model.addAttribute("rdxwList", rdxwList);
+		}else {
+			model.addAttribute("rdxwArticle", rdxwArticle);
+			model.addAttribute("rdxwList", rdxwList);
+		}
 		
 		return "index";
 	}
@@ -333,15 +349,14 @@ public class IndexController {
     	List<Article> articleList = articleService.queryByPlate(plate, offSet);
     	model.addAttribute("articleList", articleList);
     	
-    	if(pagenumber != null){
-    		//查询下页是否有数据
-        	Integer nextpagenum = Integer.parseInt(pagenumber);
-        	Integer nextoffSet = (nextpagenum+2)*2;
-        	List<Article> nextarticleList = articleService.queryByPlate(plate, nextoffSet);
-        	if(nextarticleList.size() == 0) {
-        		model.addAttribute("nextpage", 0);
-        	}
-    	}
+    	//查询下页是否有数据
+        Integer nextpagenum = pagenumber==null?0:Integer.parseInt(pagenumber);
+        Integer nextoffSet = (nextpagenum+2)*10;
+        List<Article> nextarticleList = articleService.queryByPlate(plate, nextoffSet);
+        if(nextarticleList.size() == 0) {
+        	model.addAttribute("nextpage", 0);
+        }
+        
     	model.addAttribute("pageNumber", pageNumber);
     
     	return "text_public";
