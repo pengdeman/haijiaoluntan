@@ -81,5 +81,13 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public List<User> findAll() {
 		return this.userDao.findAll();
+	}
+
+	/**
+	 * 删除用户
+	 */
+	@Override
+	public void deleteByPrimaryKey(int id) {
+		userDao.deleteByPrimaryKey(id);
 	}  
 } 

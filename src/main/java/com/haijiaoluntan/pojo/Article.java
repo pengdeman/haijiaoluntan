@@ -28,6 +28,17 @@ public class Article {
 	private String createName;
 	//文章创建人id
 	private Long createId;
+	
+	//每页条数
+	private Integer pageNumber;
+
+	public Integer getPageNumber() {
+		return pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+	}
 
 	public Long getId() {
 		return id;

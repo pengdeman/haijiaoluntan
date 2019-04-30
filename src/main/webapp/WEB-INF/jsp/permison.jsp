@@ -107,56 +107,57 @@
 	</div>
 	<div class="newslist-right">
 		<div class="bread">
-			当前位置：<a>首页</a> - 
-			<c:if test="${type eq 0}">
-			热点新闻
-			</c:if>
-			<c:if test="${type eq 1}">
-			兼职招聘
-			</c:if>
-			<c:if test="${type eq 2}">
-			二手市场
-			</c:if>
-			<c:if test="${type eq 3}">
-			家有萌宠
-			</c:if>
-			<c:if test="${type eq 4}">
-			同城交友
-			</c:if>
-			<c:if test="${type eq 5}">
-			情感天地
-			</c:if>
-			<c:if test="${type eq 6}">
-			广告位展示
-			</c:if>
+			当前位置：<a>首页</a> - 权限管理
 		</div>
 		<ul class="newslist-ul fix">
-			<c:forEach items="${articleList}" var="item">
-				<li>
-					<c:if test="${login_user != null}">
-						<c:if test="${login_user.account eq 'admin' || login_user.plate eq plate}">
-							<span>
-								<label onclick="deletearticle(${item.id })">删除</label> | 
-								<c:if test="${item.top eq '1'}">
-									<label onclick="canceltoparticle(${item.id })" style="color: red;">取消置顶</label>
-								</c:if>
-								<c:if test="${item.top != '1'}">
-									<label onclick="toparticle(${item.id })">置顶</label> 
-								</c:if>
-							</span>
-						</c:if>
-					</c:if>
-					<span style="margin-left: 30px;"> [<fmt:formatDate value="${item.createTime }" pattern="yyyy-MM-dd"></fmt:formatDate>]</span>
-					<a href="<%=basePath%>godetails?id=${item.id }" target="_blank"><c:if test="${item.top eq '1'}"><img width="15px;" style="margin-bottom: 5px;" src="images/huo.png"></c:if> ${item.title }</a>
-				</li>
-			</c:forEach>
+		<table class="table">
+  			<thead>
+    			<tr>
+      				<th style="text-align: center;">昵称</th>
+      				<th style="text-align: center;">账号</th>
+      				<th style="text-align: center;">密码</th>
+      				<th style="text-align: center;">等级</th>
+      				<th style="text-align: center;">版主</th>
+      				<th style="text-align: center;">登录时间</th>
+      				<th style="text-align: center;">操作</th>
+    			</tr>
+  			</thead>
+  			<tbody>
+  				<c:forEach items="${userList}" var="item">
+   					<tr>
+      					<td style="text-align: center;">${item.name}</td>
+      					<td style="text-align: center;">${item.account}</td>
+      					<td style="text-align: center;">${item.password}</td>
+      					<td style="text-align: center;">${item.level}</td>
+      					<td style="text-align: center;">${item.plate}</td>
+      					<td style="text-align: center;"><fmt:formatDate value="${item.loginTime}" pattern="yyyy-MM-dd"></fmt:formatDate></td>
+      					<td style="text-align: center;">
+      						<c:if test="${item.account != 'admin'}">
+      							<a style=" color: blue;" data-toggle="modal" data-target="#plateModal" onclick="fuzhi('${item.name}', ${item.id})">指定板块</a> | 
+      							<a style=" color: blue;" onclick="deleteuser(${item.id})">删除账号</a>
+      						</c:if>
+      					</td>
+    				</tr>
+    			</c:forEach>
+  			</tbody>
+		</table>
 		</ul>
-		<!--  disabled -->
-		<ul class="pager">
-			
-			<li <c:if test="${pageNumber == 0}">class="previous disabled"</c:if><c:if test="${pageNumber != 0}">class="previous"</c:if>><a href="<%=basePath%>textlist?type=${type}&pagenumber=${pageNumber}&pagetype=older">&larr; Older</a></li>
-			<li <c:if test="${nextpage == 0}">class="next disabled"</c:if><c:if test="${nextpage != 0}">class="next"</c:if>><a href="<%=basePath%>textlist?type=${type}&pagenumber=${pageNumber}&pagetype=newer">Newer &rarr;</a></li>
-		</ul>
+		<div class="page">
+			总共<span>55</span>页 当前第<span>1</span>/<span>55</span>页
+			<a href="#">首页</a>
+			<a href="#">上一页</a>
+			<a href="#">下一页</a>
+			<a href="#">尾页</a>
+			<span>8</span>篇文章/页
+			<select>
+				<option>跳至</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+		</div>
 	</div>
 </div>
 <!-- footer -->

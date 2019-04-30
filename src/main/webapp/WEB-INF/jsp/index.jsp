@@ -99,7 +99,7 @@
 		<div class="hot-news">
 			<div class="hotNews-title">
 				<h6>热点新闻</h6>
-				<a href="#">更多</a>
+				<a href="<%=basePath%>textlist?type=0">更多</a>
 			</div>
 			<div class="hotNews-txt">
 				<div class="hotNews-top">
@@ -211,21 +211,18 @@
 	<div class="hydt bd">
 		<div class="boxtitle fixp">
 			<h6>兼职招聘</h6>
-			<a href="#">更多</a>
+			<a href="<%=basePath%>textlist?type=1">更多</a>
 			<span></span>
 		</div>
 		<div class="box-padding fixp">
 			<div class="hydt-l">
-				<img src="images/hydt-img.jpg">
-				<a href="#">足迹网招聘进行时...</a>
+				<img src="pic/${jjzpArticle.pictureUrl }" style="width: 150px; height: 150px;">
+				<a href="<%=basePath%>godetails?id=${jjzpArticle.id }" target="_blank">${jjzpArticle.title }</a>
 			</div>
 			<ul>
-				<li><a href="#">百度集团招聘公告</a></li>
-				<li><a href="#">阿里巴巴内部职位公布情况展示...</a></li>
-				<li><a href="#">腾讯最难岗位大搜集，莫失良机</a></li>
-				<li><a href="#">滴滴新鲜出炉的岗位一览表...</a></li>
-				<li><a href="#">头条新增200HC情况详解</a></li>
-				<li><a href="#">美团年度裁员，但这个部门却一直在...</a></li>
+				<c:forEach items="${jzzpList }" var="item">
+					<li><a href="<%=basePath%>godetails?id=${item.id }" target="_blank">${item.title}</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 	</div>
@@ -233,21 +230,18 @@
 	<div class="hydt bd" style="float:right">
 		<div class="boxtitle fixp">
 			<h6>二手市场</h6>
-			<a href="#">更多</a>
+			<a href="<%=basePath%>textlist?type=2">更多</a>
 			<span></span>
 		</div>
 		<div class="box-padding fixp">
 			<div class="hydt-l">
-				<img src="images/hydt-img.jpg">
-				<a href="#">最新二手兰博基尼展示...</a>
+				<img src="pic/${esscArticle.pictureUrl }" style="width: 150px; height: 150px;">
+				<a href="<%=basePath%>godetails?id=${esscArticle.id }" target="_blank">${esscArticle.title }</a>
 			</div>
 			<ul>
-				<li><a href="#">二手华为p200再像你招手</a></li>
-				<li><a href="#">二手mac只需一个月工资就可以拿到...</a></li>
-				<li><a href="#">二手市场到底多么重要</a></li>
-				<li><a href="#">二手最新商品展示，不要错过淘宝机会...</a></li>
-				<li><a href="#">我有一个二手自行车，看上的联系</a></li>
-				<li><a href="#">二手市场份额逐年增大...</a></li>
+				<c:forEach items="${esscList}" var="item">
+					<li><a href="<%=basePath%>godetails?id=${item.id }" target="_blank">${item.title}</a></li>
+				</c:forEach>
 			</ul>
 		</div>
 	</div>
@@ -257,38 +251,12 @@
 		<div class="showbox fixp">
 			<div class="showlist">
 				<ul>	
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
-					<li>
-						<img src="images/zujiwang.png" style="width: 175px; height: 120px;">
-						<p>足迹网</p>
-					</li>
+					<c:forEach items="${ggwList}" var="item">
+						<li onclick="ggw(${item.id })">
+							<img src="pic/${item.pictureUrl }" style="width: 175px; height: 120px;">
+							<p style="overflow: hidden; text-overflow:ellipsis; white-space: nowrap;">${item.title }</p>
+						</li>
+					</c:forEach>
 				</ul>
 			</div>
 			<a href="javascript:;" class="prve listbtn"></a>

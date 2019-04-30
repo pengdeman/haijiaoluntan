@@ -120,9 +120,10 @@
 				<div class="cp-list">
 					<h6>${item.title }</h6>
 					<img src="pic/${item.pictureUrl }">
-					<div>
-					${item.comment } 
-					<a href="<%=basePath%>godetails?id=${item.id }" target="_blank">详情</a></div>
+					<div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden;">
+						${item.comment } 
+						<a href="<%=basePath%>godetails?id=${item.id }" target="_blank">详情</a>
+					</div>
 				</div>
 			</c:forEach>
 		</div>

@@ -29,7 +29,12 @@
 		</div>
 		<div class="news-article">
 			<h6>${article.title }</h6>
-			<p class="time"><span>时间： <fmt:formatDate value="${article.createTime }" pattern="yyyy-MM-dd"></fmt:formatDate></span><span>发布人：${article.createName }</span></p>
+			<p class="time">
+				<span>时间： <fmt:formatDate value="${article.createTime }" pattern="yyyy-MM-dd"></fmt:formatDate></span>
+				<span>发布人：${article.createName }</span>
+				<span>点击量：${article.clickTimes }</span>
+			</p>
+			
 			
 			<img style="width: 600px; height: 300px;" src="pic/${article.pictureUrl }">
 			<br>

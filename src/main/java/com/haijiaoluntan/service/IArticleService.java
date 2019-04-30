@@ -23,12 +23,12 @@ public interface IArticleService {
 	 * 通过板块查信息
 	 * @param type
 	 */
-	public List<Article> queryByPlate(String type);
+	public List<Article> queryByPlate(String plate, Integer pagenumber);
 
 	/**
 	 * 通过板块查信息 带分页
 	 * @param string
 	 * @return
 	 */
-	public List<Article> queryByPlateAndLimit(String string);
+	public List<Article> queryByPlateAndLimit(String plate);
 }

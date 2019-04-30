@@ -29,18 +29,18 @@
     )
   </insert>
   
-  <select id="queryByPlate" resultMap="BaseResultMap" parameterType="java.lang.String">
+  <select id="queryByPlate" resultMap="BaseResultMap"  parameterType="com.haijiaoluntan.pojo.Article">
    	select 
     <include refid="Base_Column_List" />
     from article 
-    where plate = #{plate}
+    where plate = #{plate}  ORDER BY top DESC, click_times DESC, create_time DESC limit ${pageNumber}, 10
   </select>
   
   <select id="queryByPlateAndLimit" resultMap="BaseResultMap" parameterType="java.lang.String">
   	select 
     <include refid="Base_Column_List" />
     from article 
-    where plate = #{plate} limit 0, 6
+    where plate = #{plate}  ORDER BY top DESC, click_times DESC, create_time DESC limit 0, 7
   </select>
   
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -59,7 +59,10 @@
     update article
     <set >
       <if test="clickTimes != null" >
-        click_times = #{clickTimes}
+        click_times = #{clickTimes},
+      </if>
+      <if test="top != null" >
+        top = #{top}
       </if>
     </set>
     where id = #{id}

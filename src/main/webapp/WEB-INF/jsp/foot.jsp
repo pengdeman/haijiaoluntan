@@ -86,7 +86,7 @@
 </div>
 
 <!-- 发布信息模态框 -->
-  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="chenxingModalLabel" aria-hidden="true">
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header" style="background-image: url('xingchen.jpg');background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;">
@@ -141,6 +141,57 @@ aria-hidden="true">×
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+  
+  
+  <!-- 指定板块 -->
+  <div class="modal fade" id="plateModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-image: url('xingchen.jpg');background-repeat:no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;">
+          <button type="button" class="close" data-dismiss="modal"
+aria-hidden="true">×
+          </button>
+          <h1 class="text-center" id="chenxingModalLabel">
+            设置用户板块
+          </h1>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" action="<%=basePath%>modifyplate" id="plate-form_id" method="post">
+            <div class="form-group">
+				<label>昵称：</label> 
+				<label id="username"></label> 
+			</div>
+			<input type="hidden" id="userid" name="userid" value="">
+            <div class="form-group">
+              <label>板块设置</label>
+                <div class="input-group">
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      选择板块
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:getbankuaim('热点新闻')">热点新闻</a></li>
+                      <li><a href="javascript:getbankuaim('兼职招聘')">兼职招聘</a></li>
+                      <li><a href="javascript:getbankuaim('二手市场')">二手市场</a></li>
+                      <li><a href="javascript:getbankuaim('家有萌宠')">家有萌宠</a></li>
+                      <li><a href="javascript:getbankuaim('同城交友')">同城交友</a></li>
+                      <li><a href="javascript:getbankuaim('情感天地')">情感天地</a></li>
+                      <li><a href="javascript:getbankuaim('广告位展示')">广告位展示</a></li>
+                    </ul>
+                  </div><!-- /btn-group -->
+                  <input type="text" class="form-control" id="platem" name="platem">
+                </div><!-- /input-group -->
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="submit" onclick="platesubform()" class="btn btn-primary">修改</button>
+			</div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-common.js"></script>
@@ -164,6 +215,14 @@ aria-hidden="true">×
 			})
 		})
 
+	   /**
+		* 赋值
+		*/
+		function fuzhi(name, id){
+			$("#username").html(name);
+			$("#userid").val(id);
+		}
+		
 		/**
        * 信息发布
        */
@@ -211,12 +270,35 @@ aria-hidden="true">×
 			});
 			$("#signin-form_id").submit();
 		}
+		
+		/**
+		 * 修改用户负责板块
+		 */
+		function platesubform(){
+			if ($("input[name='platem']").val().length == 0) {
+	             alert("请选择一个板块。");
+	             return;
+	         }
+			layer.open({
+	              type: 2
+	              ,content: '发布中...'
+	              ,time: 5
+	          });
+	          $("#plate-form_id").submit();
+		}
 
 		/**
 	       * 选择板块
 	       */
 	      function getbankuai(mes){
 	          $("#plate").val(mes);
+	      }
+		
+	      /**
+	       * 选择板块
+	       */
+	      function getbankuaim(mes){
+	          $("#platem").val(mes);
 	      }
 		
 		/**
@@ -248,9 +330,44 @@ aria-hidden="true">×
 		}
 		
 		/**
-	       * 登出
-	       */
-	      function tuichu(){
-	          window.location.href="<%=basePath%>loginout";
-	      }
+	     * 登出
+	     */
+	    function tuichu(){
+	        window.location.href="<%=basePath%>loginout";
+	    }
+		
+		/**
+	     * 删除
+	     */
+		function deletearticle(id){
+			window.location.href="<%=basePath%>deletearticle?id="+id;
+		}
+		
+		/**
+	     * 置顶
+	     */
+		function toparticle(id){
+			window.location.href="<%=basePath%>toparticle?id="+id;
+		}
+		
+		/**
+		* 取消置顶
+		*/
+		function canceltoparticle(id){
+			window.location.href="<%=basePath%>canceltoparticle?id="+id;
+		}
+		
+		/**
+		* 删除账号
+		*/
+		function deleteuser(id){
+			window.location.href="<%=basePath%>deleteuser?id="+id;
+		}
+		
+		/**
+		* 广告位详情
+		*/
+		function ggw(id){
+			window.location.href="<%=basePath%>godetails?id="+id;
+		}
 	</script>

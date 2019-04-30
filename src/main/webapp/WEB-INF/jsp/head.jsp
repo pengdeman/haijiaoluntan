@@ -25,7 +25,7 @@
 		<ul>
 			<li <c:if test="${type eq '8'}">class="on"</c:if>><a href="<%=basePath%>index?type=8">网站首页 </a></li>
 			<li class="line"></li>
-			<li <c:if test="${type eq '0'}">class="on"</c:if>><a href="<%=basePath%>picturelist?type=0">热点新闻</a></li>
+			<li <c:if test="${type eq '0'}">class="on"</c:if>><a href="<%=basePath%>textlist?type=0">热点新闻</a></li>
 			<li class="line"></li>
 			<li <c:if test="${type eq '1'}">class="on"</c:if>><a href="<%=basePath%>textlist?type=1">兼职招聘</a></li>
 			<li class="line"></li>
@@ -37,7 +37,7 @@
 			<li class="line"></li>
 			<li <c:if test="${type eq '5'}">class="on"</c:if>><a href="<%=basePath%>textlist?type=5">情感天地</a></li>
 			<li class="line"></li>
-			<li <c:if test="${type eq '6'}">class="on"</c:if>><a href="<%=basePath%>picturelist?type=6">广告位展示</a></li>
+			<li <c:if test="${type eq '6'}">class="on"</c:if>><a href="<%=basePath%>textlist?type=6">广告位展示</a></li>
 			<c:if test="${login_user.account eq 'admin'}">
 				<li class="line"></li>
 				<li <c:if test="${type eq '7'}">class="on"</c:if>><a href="<%=basePath%>permison?type=7">权限管理</a></li>

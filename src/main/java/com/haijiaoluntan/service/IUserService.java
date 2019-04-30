@@ -23,4 +23,6 @@ public interface IUserService {
 	public void updateSelective(User user);
 
 	public List<User> findAll();
+
+	public void deleteByPrimaryKey(int parseInt);
 }

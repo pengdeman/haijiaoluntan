@@ -19,7 +19,7 @@ public interface IArticleDao {
 
 	void deleteByPrimaryKey(Integer id);
 
-	List<Article> queryByPlate(String plate);
+	List<Article> queryByPlate(Article article);
 
 	List<Article> queryByPlateAndLimit(String plate);
 }
